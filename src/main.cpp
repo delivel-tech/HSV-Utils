@@ -9,18 +9,18 @@ static std::string hsvToString(ccHSVValue const& hsv) {
 }
 
 static bool stringToHSV(std::string const& str, ccHSVValue& out) {
-    std::stringstream ss(str);
-    std::string part;
+    auto parts = geode::utils::string::split(str, "|");
+    if (parts.size() != 3) return false;
 
-    if (!std::getline(ss, part, '|')) return false;
-    out.h = std::stof(part);
+    auto h = geode::utils::numFromString<float>(parts[0]);
+    auto s = geode::utils::numFromString<float>(parts[1]);
+    auto v = geode::utils::numFromString<float>(parts[2]);
 
-    if (!std::getline(ss, part, '|')) return false;
-    out.s = std::stof(part);
+    if (!h || !s || !v) return false;
 
-    if (!std::getline(ss, part, '|')) return false;
-    out.v = std::stof(part);
-
+    out.h = *h;
+    out.s = *s;
+    out.v = *v;
     return true;
 }
 
