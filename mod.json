@@ -1,0 +1,14 @@
+{
+	"geode": "4.10.0",
+	"gd": {
+		"win": "2.2074",
+		"android": "2.2074",
+		"mac": "2.2074",
+		"ios": "2.2074"
+	},
+	"id": "delivel.hsv-utils",
+	"name": "HSV Utils",
+	"version": "v0.0.1",
+	"developer": "delivel",
+	"description": "Adds tools for HSV in editor."
+}
